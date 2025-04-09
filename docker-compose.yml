@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  dreieckstaender:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./static/images:/app/static/images
+      - ./daten.csv:/app/daten.csv

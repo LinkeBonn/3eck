@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Alle Ständer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-light">
+
+<nav class="navbar bg-white shadow-sm px-3 d-flex justify-content-between align-items-center">
+    <span class="fw-bold text-danger">🚩 Dreieckständer</span>
+    <div class="d-flex gap-2 flex-wrap">
+        <a href="/" class="btn btn-sm btn-outline-secondary">➕ Neu</a>
+        <a href="/view" class="btn btn-sm btn-outline-primary">🔍 Übersicht</a>
+        <a href="/map" class="btn btn-sm btn-outline-dark">🗺️ Karte</a>
+    
+        <!-- Dropdown -->
+        <div class="dropdown">
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ☰ Mehr
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="/stats">📊 Statistik</a></li>
+            <li><a class="dropdown-item" href="/faq">ℹ️ Hilfe & FAQ</a></li>
+            <!-- Weitere Links bei Bedarf -->
+        </ul>
+        </div>
+    </div>
+    </nav>
+<!-- Flash-Meldung -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="container mt-3">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Schließen"></button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<div class="container py-4">
+  <h1 class="mb-4 text-center">📋 Übersicht aller Dreieckständer</h1>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for e in eintraege %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#imgModal{{ loop.index }}">
+          <img src="/static/images/{{ e.bild }}" class="card-img-top thumbnail-img" alt="Bild zum Eintrag">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{ e.titel }}</h5>
+          <p class="mb-1"><strong>Adresse:</strong> {{ e.strasse }}, {{ e.plz }} {{ e.stadt }}</p>
+          <p class="mb-1"><strong>OG Bereich:</strong> {{ e.og }}</p>
+          <span class="status-tag status-{{ e.status.split()[0] }}">{{ e.status }}</span>
+          <p class="mt-2 mb-1"><strong>Koordinaten:</strong> {{ e.lat }}, {{ e.lon }}</p>
+          <p><a href="https://www.openstreetmap.org/?mlat={{ e.lat }}&mlon={{ e.lon }}&zoom=18" target="_blank">📍 Auf OpenStreetMap anzeigen</a></p>
+          <p><strong>Kommentar:</strong><br>{{ e.kommentar }}</p>
+        </div>
+        <div class="card-footer text-muted text-end">
+          {{ e.timestamp }}
+          <form method="post" action="{{ url_for('delete_entry', timestamp=e.timestamp) }}" class="d-inline-flex align-items-center gap-2">
+            <input type="password" name="passwort" placeholder="🔐 Passwort" class="form-control form-control-sm" style="width: 100px;" required>
+            <button type="submit" class="btn btn-sm btn-danger" title="Eintrag löschen">🗑️</button>
+          </form> 
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal für Großansicht -->
+    <div class="modal fade" id="imgModal{{ loop.index }}" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <img src="/static/images/{{ e.bild }}" class="img-fluid w-100 clickable-modal-img" alt="Großansicht" data-bs-dismiss="modal">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.clickable-modal-img').forEach(img => {
+      img.style.cursor = "zoom-out";
+    });
+  });
+</script>
+
+</body>
+</html>

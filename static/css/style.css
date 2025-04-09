@@ -1,0 +1,125 @@
+/* static/css/style.css */
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url("/static/fonts/WorkSans-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #b5002a; /* Die Linke Rot */
+  }
+  
+  .btn-primary {
+    background-color: #b5002a;
+    border-color: #b5002a;
+  }
+  
+  .btn-primary:hover {
+    background-color: #a10026;
+    border-color: #a10026;
+  }
+  
+  .btn-success {
+    background-color: #b5002a;
+    border-color: #b5002a;
+  }
+  
+  .btn-success:hover {
+    background-color: #a10026;
+    border-color: #a10026;
+  }
+  
+  .btn-link {
+    color: #b5002a;
+    text-decoration: none;
+  }
+  
+  .btn-link:hover {
+    color: #a10026;
+    text-decoration: underline;
+  }
+  .btn {
+    border-radius: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    font-weight: 500;
+  }
+  .card {
+    border: none;
+    border-radius: 0.75rem;
+  }
+  
+  .card-footer {
+    background-color: #f1f1f1;
+    border-top: none;
+    border-radius: 0 0 0.75rem 0.75rem;
+  }
+  
+  .thumbnail-img {
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 0.75rem 0.75rem 0 0;
+  }
+  
+  .status-tag {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  
+  .status-Gut {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .status-Kaputt {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .status-Offen {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  
+  @media (max-width: 768px) {
+    .thumbnail-img {
+      max-height: 130px;
+    }
+  }
+  
+  a.top-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: white;
+    border-radius: 50px;
+    padding: 0.4rem 0.8rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-decoration: none;
+    font-weight: bold;
+    color: #b5002a;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    z-index: 999;
+  }
+  
+  a.top-link:hover {
+    background-color: #f5f5f5;
+    color: #a10026;
+  }
+  
+  

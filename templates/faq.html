@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>FAQ & Anleitung</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <nav class="navbar bg-white shadow-sm px-3 d-flex justify-content-between align-items-center">
+        <span class="fw-bold text-danger">🚩 Dreieckständer</span>
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="/" class="btn btn-sm btn-outline-secondary">➕ Neu</a>
+          <a href="/view" class="btn btn-sm btn-outline-primary">🔍 Übersicht</a>
+          <a href="/map" class="btn btn-sm btn-outline-dark">🗺️ Karte</a>
+      
+          <!-- Dropdown -->
+          <div class="dropdown">
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ☰ Mehr
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="/stats">📊 Statistik</a></li>
+              <li><a class="dropdown-item" href="/faq">ℹ️ Hilfe & FAQ</a></li>
+              <!-- Weitere Links bei Bedarf -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+<div class="container py-5">
+  <h1 class="mb-4">📖 Anleitung zur Nutzung</h1>
+
+  <p>Diese Plattform hilft uns dabei, Dreieckständer in Bonn zu verwalten. Du kannst Standorte erfassen, den Zustand melden und alle Einträge übersichtlich auf einer Karte sehen.</p>
+
+  <h2 class="mt-5">📝 So funktioniert das Eintragen</h2>
+  <ol>
+    <li>Standort auf der Karte auswählen (klicken).</li>
+    <li>Adresse wird automatisch ergänzt – du kannst sie anpassen.</li>
+    <li>Titel, Status und OG auswählen.</li>
+    <li>Foto aufnehmen oder hochladen.</li>
+    <li>Eintragen – du erhältst ein Passwort, um später wieder zu löschen.</li>
+  </ol>
+
+  <h2 class="mt-5">📸 Beispiel: Formular ausfüllen</h2>
+
+  <div class="row g-3">
+    <div class="col-md-6">
+      <img src="/static/screenshots/form1.jpg" class="img-fluid rounded shadow-sm zoom-img" data-bs-toggle="modal" data-bs-target="#modalForm1" alt="Formular Screenshot 1">
+    </div>
+    <div class="col-md-6">
+      <img src="/static/screenshots/form2.jpg" class="img-fluid rounded shadow-sm zoom-img" data-bs-toggle="modal" data-bs-target="#modalForm2" alt="Formular Screenshot 2">
+    </div>
+  </div>
+  
+  <!-- Modal 1 -->
+  <div class="modal fade" id="modalForm1" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <img src="/static/screenshots/form1.jpg" class="img-fluid w-100" alt="Formular groß" onclick="bootstrap.Modal.getInstance(document.getElementById('modalForm1')).hide();">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal 2 -->
+  <div class="modal fade" id="modalForm2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <img src="/static/screenshots/form2.jpg" class="img-fluid w-100" alt="Formular groß" onclick="bootstrap.Modal.getInstance(document.getElementById('modalForm2')).hide();">
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="mt-5">🔐 Löschcode nach Eintrag</h2>
+<p>Nach dem Eintragen eines neuen Standorts wird dir ein zufällig generierter Löschcode angezeigt. Diesen solltest du dir unbedingt notieren – du brauchst ihn, um deinen Eintrag später wieder löschen zu können.</p>
+
+<div class="col-md-6 col-lg-5 my-3">
+  <img src="/static/screenshots/loeschcode.jpg" class="img-fluid rounded shadow-sm zoom-img" data-bs-toggle="modal" data-bs-target="#modalCode" alt="Löschcode Beispiel">
+</div>
+
+<!-- Modal für Löschcode -->
+<div class="modal fade" id="modalCode" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <img src="/static/screenshots/loeschcode.jpg" class="img-fluid w-100" alt="Löschcode groß" onclick="bootstrap.Modal.getInstance(document.getElementById('modalCode')).hide();">
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="mt-5">✅ Erfolgreich eingetragen</h2>
+<p>Nachdem du deinen Eintrag abgeschickt hast, erscheint eine kurze Bestätigung und du wirst automatisch zur Übersicht weitergeleitet.</p>
+<p>Dort findest du alle gemeldeten Ständer – inklusive deines neuen Eintrags. Du kannst ihn anhand des Zeitstempels, des Bilds oder der Adresse leicht wiedererkennen.</p>
+<p>Merke dir unbedingt den <strong>Löschcode</strong>, falls du den Eintrag später wieder entfernen möchtest.</p>
+
+<div class="col-md-6 col-lg-5 my-3">
+  <img src="/static/screenshots/erfolg.jpg" class="img-fluid rounded shadow-sm zoom-img" data-bs-toggle="modal" data-bs-target="#modalSuccess" alt="Erfolgsnachricht Screenshot">
+</div>
+
+<!-- Modal für Erfolgsnachricht -->
+<div class="modal fade" id="modalSuccess" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <img src="/static/screenshots/erfolg.jpg" class="img-fluid w-100" alt="Erfolgsnachricht groß" onclick="bootstrap.Modal.getInstance(document.getElementById('modalSuccess')).hide();">
+      </div>
+    </div>
+  </div>
+</div>
+
+  <h2 class="mt-5">❓ Häufige Fragen</h2>
+
+  <div class="accordion" id="faqAccordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq1">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1Content">
+          Was mache ich, wenn ich mein Passwort zum Löschen vergessen habe?
+        </button>
+      </h2>
+      <div id="faq1Content" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Leider kannst du den Eintrag dann nicht selbst löschen. Melde dich bitte beim Admin-Team, wir helfen dir weiter.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq2">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2Content">
+          Welche Fotos sollte ich hochladen?
+        </button>
+      </h2>
+      <div id="faq2Content" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Am besten ein gut erkennbares Bild des Ständers. Achte auf Tageslicht und den Straßenzuschnitt. Keine Personen bitte.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3Content">
+          Wie wird der Standort gespeichert?
+        </button>
+      </h2>
+      <div id="faq3Content" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Die GPS-Koordinaten (Breiten- und Längengrad) werden bei Klick auf die Karte gespeichert und automatisch in Adresse umgewandelt.
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
